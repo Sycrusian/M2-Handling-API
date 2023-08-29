@@ -19,7 +19,7 @@
         <ul class="product__list"></ul>
     </main>
 </body>
-<dialog id="dialog__new-product">
+<dialog id="dialog__new-product" class="dialog__controller">
     <div class="dialog__container">
         <div class="dialog__header">
             <h2 class="secondary__title">Cadastrar Novo Produto</h2>
@@ -28,26 +28,57 @@
         <form>
             <div class="div__new-product">
                 <label for="nome_do_produto">Nome do Produto:</label>
-                <input type="text" class="input__new-produxt" name="nome_do_produto">
+                <input type="text" class="input__new-product" name="nome_do_produto">
             </div>
             <div class="div__new-product">
                 <label for="descricao_do_produto">Descrição:</label>
-                <input type="text" class="input__new-produxt" name="descricao_do_produto">
+                <input type="text" class="input__new-product" name="descricao_do_produto">
             </div>
             <div class="div__new-product">
                 <label for="preco">Preço:</label>
-                <input type="text" class="input__new-produxt" name="preco">
+                <input type="number" class="input__new-product" name="preco">
             </div>
             <div class="div__new-product">
                 <label for="quantidade_em_estoque">Quantidade em Estoque:</label>
-                <input type="text" class="input__new-produxt" name="quantidade_em_estoque">
+                <input type="number" class="input__new-product" name="quantidade_em_estoque">
             </div>
             <div class="div__new-product">
                 <label for="imagem">URL da Imagem:</label>
-                <input type="text" class="input__new-produxt" name="imagem">
+                <input type="text" class="input__new-product" name="imagem">
             </div>
         </form>
-        <button id="create__new-product" class="modal__button">Cadastrar Produto</button>
+        <button id="create__new-product" class="card__button">Cadastrar Produto</button>
+    </div>
+</dialog>
+<dialog id="dialog__edit-product" class="dialog__controller">
+    <div class="dialog__container">
+        <div class="dialog__header">
+            <h2 class="secondary__title">Alterar Produto</h2>
+            <button id="close__edit-product" class="close__button"></button>
+        </div>
+        <form>
+            <div class="div__new-product">
+                <label for="nome_do_produto">Nome do Produto:</label>
+                <input type="text" class="input__edit-product" name="nome_do_produto">
+            </div>
+            <div class="div__new-product">
+                <label for="descricao_do_produto">Descrição:</label>
+                <input type="text" class="input__edit-product" name="descricao_do_produto">
+            </div>
+            <div class="div__new-product">
+                <label for="preco">Preço:</label>
+                <input type="number" class="input__edit-product" name="preco">
+            </div>
+            <div class="div__new-product">
+                <label for="quantidade_em_estoque">Quantidade em Estoque:</label>
+                <input type="number" class="input__edit-product" name="quantidade_em_estoque">
+            </div>
+            <div class="div__new-product">
+                <label for="imagem">URL da Imagem:</label>
+                <input type="text" class="input__edit-product" name="imagem">
+            </div>  
+        </form>
+        <button id="edit-product" class="card__button">Alterar Produto</button>
     </div>
 </dialog>
 </html>

@@ -11,11 +11,16 @@ header {
     left: 0;
     width: 100vw;
     height: 4rem;
+    background-color: indigo;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 5px 2px 1px white;
+}
+
+.hidden {
+    display: none;
 }
 
 .main__title {
@@ -58,6 +63,7 @@ main {
 .product__list {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 5rem;
 }
 
 .product__card {
@@ -71,6 +77,7 @@ main {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    margin: 1rem;
 }
 
 .product__name {
@@ -79,7 +86,7 @@ main {
 }
 
 .product__image {
-    width: 65%;
+    height: 50%;
     border-radius: 0.4rem;
 }
 
@@ -93,13 +100,13 @@ main {
     font-weight: 500;
 }
 
-#dialog__new-product {
+.dialog__controller {
     border: none;
     border-radius: 10px;
     width: 31.25rem;
 }
 
-#dialog__new-product::backdrop {
+.dialog__controller::backdrop {
     background-color: #000;
     opacity: 0.8;
 }
@@ -155,7 +162,7 @@ main {
     transform: rotate(-45deg);
 }
 
-.modal__button {
+.card__button {
     margin-top: 1rem;
     padding: 0.6rem;
     border-radius: 0.4rem;
@@ -165,7 +172,7 @@ main {
     font-weight: 600;
 }
 
-.modal__button:hover {
+.card__button:hover {
     border: 2px solid indigo;
     background-color: white;
     color: indigo;
