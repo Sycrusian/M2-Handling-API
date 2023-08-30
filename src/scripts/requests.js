@@ -21,7 +21,7 @@ export const getProducts = async () => {
             if (response.ok) {
                 return responseJson;
             } else {
-                throw new Error(`Erro: ${response.status}`);
+                throw new Error(`Erro: ${responseJson.message}`);
             }
         })
         .catch(error => console.error(error.message));
@@ -34,7 +34,16 @@ export const postProduct = async product => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(product)
     };
-    const postProduct = await fetch(`${baseURL}/products`, options);
+    const postProduct = await fetch(`${baseURL}/products`, options)
+    .then(async response => {
+        const responseJson = await response.json();
+        if (response.ok) {
+            return responseJson;
+        } else {
+            throw new Error(`Erro: ${responseJson.message}`);
+        }
+    })
+    .catch(error => console.error(error.message));
     return postProduct;
 }
 
@@ -44,11 +53,29 @@ export const patchProduct = async (id, data) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     };
-    const patchProduct = await fetch(`${baseURL}/products/${id}`);
+    const patchProduct = await fetch(`${baseURL}/products/${id}`, options)
+    .then(async response => {
+        const responseJson = await response.json();
+        if (response.ok) {
+            return responseJson;
+        } else {
+            throw new Error(`Erro: ${responseJson.message}`);
+        }
+    })
+    .catch(error => console.error(error.message));
     return patchProduct;
 }
 
 export const deleteProduct = async id => {
-    const deleteProduct = await fetch(`${baseURL}/products/${id}`, { method: "DELETE" });
+    const deleteProduct = await fetch(`${baseURL}/products/${id}`, { method: "DELETE" })
+    .then(async response => {
+        const responseJson = await response.json();
+        if (response.ok) {
+            return responseJson;
+        } else {
+            throw new Error(`Erro: ${responseJson.message}`);
+        }
+    })
+    .catch(error => console.error(error.message));
     return deleteProduct;
 }

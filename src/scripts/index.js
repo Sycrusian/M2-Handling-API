@@ -11,12 +11,10 @@ const handleEdit = async id => {
         const editProduct = {};
         editProductInputs.forEach(input => {
         if (input.value.trim()) {
-            if (!(input.value.trim() == product[input.name])) {
-                if (input.type == "number") {
-                    editProduct[input.name] = parseFloat(input.value.trim());
-                } else {
-                    editProduct[input.name] = input.value.trim();
-                }
+            if (input.type == "number") {
+                editProduct[input.name] = parseFloat(input.value.trim());
+            } else {
+                editProduct[input.name] = input.value.trim();
             }
         }});
         await patchProduct(id, editProduct);
