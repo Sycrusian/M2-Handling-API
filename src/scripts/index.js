@@ -8,16 +8,17 @@ const handleEdit = async id => {
     const editProductCommitButton = document.querySelector("#edit-product");
     editProductCloseButton.addEventListener("click", () => editProductDialog.close());
     editProductCommitButton.addEventListener("click", async () => {
-        const editProduct = {};
         editProductInputs.forEach(input => {
         if (input.value.trim()) {
             if (input.type == "number") {
-                editProduct[input.name] = parseFloat(input.value.trim());
+                product[input.name] = parseFloat(input.value.trim());
             } else {
-                editProduct[input.name] = input.value.trim();
+                product[input.name] = input.value.trim();
             }
         }});
-        await patchProduct(id, editProduct);
+        id = product.id;
+        delete product.id;
+        await patchProduct(id, product);
         renderCards();
         editProductDialog.close();
     })
@@ -57,7 +58,7 @@ const createProductCard = product => {
     const updateButton = document.createElement("button");
     updateButton.classList.add("card__button");
     updateButton.innerText = "Alterar";
-    updateButton.addEventListener("click", () => {
+    updateButton.addEventListener("click", event => {
         handleEdit(product.id);
     });
     const deleteButton = document.createElement("button");
